@@ -9,7 +9,5 @@ export const ContactForm = ({
   setEmail,
   handleSubmit
 }) => {
-  return (
-    ContactForm
-  );
+  return <div></div>;
 };

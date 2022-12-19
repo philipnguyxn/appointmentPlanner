@@ -1,5 +1,5 @@
 // Node Modules
-import React, { useState }  from "react";
+import React, { useState } from "react";
 import {
   Routes,
   Route,
@@ -19,8 +19,8 @@ const App = () => {
 
   const addContact = (name, phoneNumber, email) => {
     const contact = {
-      name, 
-      phoneNumber, 
+      name,
+      phoneNumber,
       email
     };
 
@@ -32,9 +32,9 @@ const App = () => {
 
   const addAppointment = (title, contact, date, time) => {
     const appointment = {
-      title, 
+      title,
       contact,
-      date, 
+      date,
       time
     };
 
@@ -50,8 +50,18 @@ const App = () => {
       <main>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/contacts' element={<ContactsPage />} contacts={contacts} addContact={addContact} />
-          <Route path='/appointments' element={<AppointmentsPage appointments={appointments} addAppointment={addAppointment} />} />
+          <Route path='/contacts' element={
+            <ContactsPage
+              contacts={contacts}
+              addContact={addContact}
+            />}
+          />
+          <Route path='/appointments' element={
+            <AppointmentsPage 
+              appointments={appointments} 
+              addAppointment={addAppointment}
+            />} 
+          />
         </Routes>
       </main>
     </>
