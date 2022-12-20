@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { ContactForm } from './contactForm/ContactForm.js'
 import { TileList } from '../../components/tileList/TileList.js'
 
-export const ContactsPage = (props) => {
+export const ContactsPage = ({ contacts, addContact }) => {
   /*
   Define state variables for 
   contact info and duplicate check
@@ -15,7 +15,7 @@ export const ContactsPage = (props) => {
 
   //Check for any names' duplications
   useEffect(() => {
-    const nameIncluded = props.contacts.some((contact) => (
+    const nameIncluded = contacts.some((contact) => (
       contact.name === name
     ))
 
@@ -25,8 +25,10 @@ export const ContactsPage = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    !duplicated && props.addContact(name, phoneNumber, email)
-    
+    console.log(duplicated)
+
+    !duplicated && addContact(name, phoneNumber, email)
+
     setName('')
     setPhoneNumber('')
     setEmail('')
@@ -36,22 +38,22 @@ export const ContactsPage = (props) => {
     <div>
       <section>
         <h2>Add Contact</h2>
-        <ContactForm 
+        <ContactForm
           name={name}
           phoneNumber={phoneNumber}
           email={email}
-          
+
           setName={setName}
           setPhoneNumber={setPhoneNumber}
           setEmail={setEmail}
-          onSubmit={handleSubmit}
+          handleSubmit={handleSubmit}
         />
       </section>
       <hr />
       <section>
         <h2>Contacts</h2>
-        <TileList 
-          contacts={props.contacts}
+        <TileList
+          contacts={contacts}
         />
       </section>
     </div>
