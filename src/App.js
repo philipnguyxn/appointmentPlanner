@@ -24,6 +24,8 @@ const App = () => {
       email
     };
 
+    console.log(contact)
+
     setContacts((prev) => ([
       contact,
       ...prev

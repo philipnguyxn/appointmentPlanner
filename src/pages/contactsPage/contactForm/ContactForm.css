@@ -1,5 +1,10 @@
-.ContactForm__submit {
-  padding: 6px 0 !important;
-  border: 0.2px solid gray !important;
-  margin: 0 !important;
+button.ui.button {
+  width: 100%;
+  padding: 5px auto;
+  border: 0.2px solid gray;
+  background-color: darkturquoise;
+}
+
+p {
+  color: red;
 }

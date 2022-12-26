@@ -1,42 +1,57 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './ContactForm.css';
+import { useForm } from "react-hook-form";
 
-export const ContactForm = ({
-  name,
-  phoneNumber,
-  email,
-  setName,
-  setPhoneNumber,
-  setEmail,
-  handleSubmit
-}) => (
-  <form className="ContactForm__form" onSubmit={handleSubmit}>
-    <input
-      type='text'
-      placeholder="Name"
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-      required
-    />
-    <input
-      type='tel'
-      placeholder="Phone Number"
-      value={phoneNumber}
-      pattern={/(84|0[3|5|6|7|8|9])+[0-9]{8}\b/}
-      onChange={(e) => {
-        try {
-          setPhoneNumber(e.target.value)
-        } catch (err) { }
-      }}
-      required
-    />
-    <input
-      placeholder="Email"
-      type='email'
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      required
-    />
-    <input className="ContactForm__submit" type="submit" value="Submit" />
-  </form>
-);
+export const ContactForm = ({ onSubmit }) => {
+  const defaultValues = {
+    name: '',
+    phoneNumber: '',
+    email: ''
+  };
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState,
+    formState: { errors, isSubmitSuccessful }
+  } = useForm({ defaultValues });
+
+  useEffect(() => {
+    isSubmitSuccessful && reset(defaultValues)
+  }, [formState, reset]);
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        type='text'
+        placeholder="Name"
+        {...register("name", { required: true })}
+      />
+      {errors.name?.message && <p>Please check the name</p>}
+
+      <input
+        type='tel'
+        placeholder="Phone Number"
+        {...register("phoneNumber", {
+          required: true,
+          pattern: /(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/
+        })}
+      />
+      {errors.phoneNumber?.message && <p>Please check the phone numbers</p>}
+
+      <input
+        placeholder="Email"
+        type='email'
+        {...register("email",
+          {
+            required: true,
+            pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          })}
+      />
+      {errors.email?.message && <p>Please check the email</p>}
+
+      <button type="submit">Submit</button>
+    </form>
+  )
+};
