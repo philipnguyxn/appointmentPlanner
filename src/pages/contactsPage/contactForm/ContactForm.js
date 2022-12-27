@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import './ContactForm.css';
 import { useForm } from "react-hook-form";
 
 export const ContactForm = ({ onSubmit }) => {

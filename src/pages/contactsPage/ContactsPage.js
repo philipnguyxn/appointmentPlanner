@@ -20,29 +20,25 @@ export const ContactsPage = ({ contacts, addContact }) => {
     ))
 
     nameIncluded && setDuplicated(true)
-  })
+  }, [name])
 
-  const handleSubmit = (data) => {
-    setName(data.name);
-    setPhoneNumber(data.phoneNumber);
-    setEmail(data.email);
+  const handleSubmit = ({ name, phoneNumber, email }) => {
+    setName(name);
+    setPhoneNumber(phoneNumber);
+    setEmail(email);
 
-    if (!duplicated) {
-      addContact(name, phoneNumber, email);
-    }
+    !duplicated && addContact(name, phoneNumber, email);
 
-    console.log(contacts)
+    setName('');
+    setPhoneNumber('');
+    setEmail('');
   };
 
   return (
     <div>
       <section>
         <h2>Add Contact</h2>
-        <ContactForm
-          setName={setName}
-          setPhoneNumber={setPhoneNumber}
-          setEmail={setEmail}
-          onSubmit={handleSubmit} />
+        <ContactForm onSubmit={handleSubmit} />
       </section>
       <hr />
       <section>

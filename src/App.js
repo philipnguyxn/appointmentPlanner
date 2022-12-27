@@ -24,8 +24,6 @@ const App = () => {
       email
     };
 
-    console.log(contact)
-
     setContacts((prev) => ([
       contact,
       ...prev
@@ -48,7 +46,9 @@ const App = () => {
 
   return (
     <>
-      <NavBar />
+      <header>
+        <NavBar />
+      </header>
       <main>
         <Routes>
           <Route path='/' element={<HomePage />} />
@@ -59,10 +59,10 @@ const App = () => {
             />}
           />
           <Route path='/appointments' element={
-            <AppointmentsPage 
-              appointments={appointments} 
+            <AppointmentsPage
+              appointments={appointments}
               addAppointment={addAppointment}
-            />} 
+            />}
           />
         </Routes>
       </main>
