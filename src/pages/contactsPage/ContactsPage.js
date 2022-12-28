@@ -1,5 +1,5 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import { ContactForm } from './contactForm/ContactForm.js'
 import { TileList } from '../../components/tileList/TileList.js'
 
@@ -15,13 +15,17 @@ export const ContactsPage = ({ contacts, addContact }) => {
 
   //Check for any names' duplications
   useEffect(() => {
-    const nameIncluded = contacts.some((contact) => (
-      contact.name === name
-    ))
-
+    const nameIncluded = contacts.some((contact) => contact.name === name)
+    
     nameIncluded && setDuplicated(true)
   }, [name])
 
+  /**
+   * Runs when the submit button is clicked
+   * Should update the states of name, phoneNumber and email
+   * and add to contacts if the names aren't duplicated
+   * @param {Object} props including the states of name, phoneNumber and email 
+   */
   const handleSubmit = ({ name, phoneNumber, email }) => {
     setName(name);
     setPhoneNumber(phoneNumber);
@@ -47,4 +51,9 @@ export const ContactsPage = ({ contacts, addContact }) => {
       </section>
     </div>
   );
+};
+
+ContactsPage.propTypes = {
+  contact: PropTypes.array.isRequired,
+  addContact: PropTypes.func.isRequired,
 };

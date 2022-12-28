@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import PropTypes from 'prop-types';
 
 export const ContactForm = ({ onSubmit }) => {
   const defaultValues = {
@@ -8,6 +9,7 @@ export const ContactForm = ({ onSubmit }) => {
     email: ''
   };
 
+  // Custom hooks for forms validation from react hook form
   const {
     register,
     handleSubmit,
@@ -16,6 +18,10 @@ export const ContactForm = ({ onSubmit }) => {
     formState: { errors, isSubmitSuccessful }
   } = useForm({ defaultValues });
 
+  /*
+  Check whether the contact form is submitted
+  If submitted then reset the form values 
+  */
   useEffect(() => {
     isSubmitSuccessful && reset(defaultValues)
   }, [formState, reset]);
@@ -54,3 +60,7 @@ export const ContactForm = ({ onSubmit }) => {
     </form>
   )
 };
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+}

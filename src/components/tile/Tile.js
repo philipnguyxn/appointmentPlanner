@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export const Tile = ({ 
   name,
@@ -17,4 +18,13 @@ export const Tile = ({
     <p className="tile">{time}</p>
   </div>
 );
+
+Tile.propTypes = {
+  name: PropTypes.string,
+  phoneNumber: PropTypes.string,
+  email: PropTypes.string,
+  date: PropTypes.instanceOf(Date),
+  title: PropTypes.string,
+  time: PropTypes.instanceOf(Date)
+}
 
