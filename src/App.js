@@ -1,9 +1,6 @@
 // Node Modules
 import React, { useState } from "react";
-import {
-  Routes,
-  Route,
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // Components
 import { NavBar } from "./components/navBar/NavBar.js";
@@ -14,6 +11,10 @@ import { ContactsPage } from "./pages/contactsPage/ContactsPage.js";
 import { HomePage } from "./pages/homePage/HomePage.js";
 
 const App = () => {
+  /*
+  Define state variables for 
+  contacts list and appointments list
+  */
   const [contacts, setContacts] = useState([]);
   const [appointments, setAppointments] = useState([]);
 

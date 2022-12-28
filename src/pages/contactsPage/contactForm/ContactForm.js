@@ -18,9 +18,9 @@ export const ContactForm = ({ onSubmit }) => {
     formState: { errors, isSubmitSuccessful }
   } = useForm({ defaultValues });
 
-  /*
-  Check whether the contact form is submitted
-  If submitted then reset the form values 
+  /**
+  * Check whether the contact form is submitted
+  * If submitted then reset the form values 
   */
   useEffect(() => {
     isSubmitSuccessful && reset(defaultValues)

@@ -13,10 +13,13 @@ export const ContactsPage = ({ contacts, addContact }) => {
   const [email, setEmail] = useState('');
   const [duplicated, setDuplicated] = useState(false);
 
-  //Check for any names' duplications
+  /**
+   * Check if the inputed name is included in existing contacts 
+   * TODO: duplicated is not setted to true even though nameIncluded is true
+  */
   useEffect(() => {
     const nameIncluded = contacts.some((contact) => contact.name === name)
-    
+
     nameIncluded && setDuplicated(true)
   }, [name])
 
@@ -54,6 +57,12 @@ export const ContactsPage = ({ contacts, addContact }) => {
 };
 
 ContactsPage.propTypes = {
-  contact: PropTypes.array.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      phoneNumber: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired
+    })
+  ),
   addContact: PropTypes.func.isRequired,
 };
