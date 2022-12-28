@@ -26,6 +26,12 @@ export const TileList = ({ contacts, appointments }) => {
 };
 
 TileList.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object),
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      phoneNumber: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired
+    })
+  ),
   appointments: PropTypes.arrayOf(PropTypes.object)
 }

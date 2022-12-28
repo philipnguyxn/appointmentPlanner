@@ -78,6 +78,7 @@ const App = () => {
           <Route path='/appointments' element={
             <AppointmentsPage
               appointments={appointments}
+              contacts={contacts}
               addAppointment={addAppointment}
             />}
           />
