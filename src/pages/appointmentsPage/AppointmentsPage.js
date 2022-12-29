@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AppointmentForm } from "./appointmentForm/AppointmentForm.js";
 
 export const AppointmentsPage = ({ appointments, contacts, addAppointment }) => {
   /*
@@ -26,6 +27,7 @@ export const AppointmentsPage = ({ appointments, contacts, addAppointment }) => 
     <div>
       <section>
         <h2>Add Appointment</h2>
+        <AppointmentForm onSubmit={handleSubmit} />
       </section>
       <hr />
       <section>
