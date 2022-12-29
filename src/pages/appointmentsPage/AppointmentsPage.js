@@ -10,12 +10,16 @@ export const AppointmentsPage = ({ appointments, contacts, addAppointment }) => 
   const [date, setDate] = useState();
   const [time, setTime] = useState();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    /*
-    Add contact info and clear data  
-    */
-
+  /**
+   * Runs when the submit button is clicked
+   * Should update title, contact, date and time created states
+   * @param {Object} props including title, contact, date and time
+   */
+  const handleSubmit = ({ title, contact, date, time }) => {
+    setTitle(title);
+    setContact(contact);
+    setDate(date);
+    setTime(time);
   };
 
   return (

@@ -25,9 +25,9 @@ export const ContactsPage = ({ contacts, addContact }) => {
 
   /**
    * Runs when the submit button is clicked
-   * Should update the states of name, phoneNumber and email
+   * Should update name, phoneNumber and email states
    * and add to contacts if the names aren't duplicated
-   * @param {Object} props including the states of name, phoneNumber and email 
+   * @param {Object} props including name, phoneNumber and email states
    */
   const handleSubmit = ({ name, phoneNumber, email }) => {
     setName(name);
