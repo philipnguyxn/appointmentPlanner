@@ -8,8 +8,8 @@ export const AppointmentsPage = ({ appointments, contacts, addAppointment }) => 
   */
   const [title, setTitle] = useState('');
   const [contact, setContact] = useState({});
-  const [date, setDate] = useState();
-  const [time, setTime] = useState();
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
 
   /**
    * Runs when the submit button is clicked
@@ -27,7 +27,17 @@ export const AppointmentsPage = ({ appointments, contacts, addAppointment }) => 
     <div>
       <section>
         <h2>Add Appointment</h2>
-        <AppointmentForm onSubmit={handleSubmit} />
+        <AppointmentForm
+          title={title}
+          contact={contact}
+          date={date}
+          time={time}
+          setTitle={setTitle}
+          setContact={setContact}
+          setDate={setDate}
+          setTime={setTime}
+          handleSubmit={handleSubmit}
+        />
       </section>
       <hr />
       <section>
