@@ -23,8 +23,8 @@ Tile.propTypes = {
   name: PropTypes.string,
   phoneNumber: PropTypes.string,
   email: PropTypes.string,
-  date: PropTypes.instanceOf(Date),
+  date: PropTypes.string,
   title: PropTypes.string,
-  time: PropTypes.instanceOf(Date)
+  time: PropTypes.string
 }
 
