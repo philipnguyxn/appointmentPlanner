@@ -9,7 +9,7 @@ export const TileList = ({ contacts, appointments }) => {
   * TODO: Change if else with looping between props to render contacts and appointments Tile components
   */
   if (contacts) {
-    return contacts.map((contact) => (
+    return contacts?.map((contact) => (
       <Tile
         key={contact.name}
         name={contact.name}
@@ -17,7 +17,7 @@ export const TileList = ({ contacts, appointments }) => {
         email={contact.email} />
     ))
   } else {
-    return appointments.map((appointment) => (
+    return appointments?.map((appointment) => (
       <Tile
 
       />

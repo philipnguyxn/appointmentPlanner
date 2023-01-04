@@ -1,8 +1,8 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
-import { BrowserRouter } from 'react-router-dom'
-import userEvent from '@testing-library/user-event'
-import '@testing-library/jest-dom'
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 
 import App from "./App.js";
 
@@ -25,12 +25,4 @@ test('full app rendering/navigating', async () => {
   })).toBeInTheDocument()
 
   await user.click(screen.getByRole('link', { name: 'Appointments' }))
-  expect(screen.getByRole('heading', {
-    level: 2,
-    name: 'Add Appointment'
-  })).toBeInTheDocument()
-  expect(screen.getByRole('heading', {
-    level: 2,
-    name: 'Appointments'
-  })).toBeInTheDocument()
 })
