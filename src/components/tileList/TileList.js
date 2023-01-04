@@ -11,7 +11,7 @@ export const TileList = ({ contacts, appointments }) => {
   if (contacts) {
     return contacts?.map((contact) => (
       <Tile
-        key={contact.name}
+        key={contact.id}
         name={contact.name}
         phoneNumber={contact.phoneNumber}
         email={contact.email} />
@@ -19,7 +19,13 @@ export const TileList = ({ contacts, appointments }) => {
   } else {
     return appointments?.map((appointment) => (
       <Tile
-
+        key={appointment.id}
+        title={appointment.title}
+        name={appointment.contact.name}
+        phoneNumber={appointment.contact.phoneNumber}
+        email={appointment.contact.email}
+        date={appointment.date}
+        time={appointment.time}
       />
     ))
   }
