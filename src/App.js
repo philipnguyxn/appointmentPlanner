@@ -1,6 +1,7 @@
 // Node Modules
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 
 // Components
 import { NavBar } from "./components/navBar/NavBar.js";
@@ -28,6 +29,7 @@ const App = () => {
    */
   const addContact = (name, phoneNumber, email) => {
     const contact = {
+      id: uuidv4(),
       name,
       phoneNumber,
       email
@@ -49,6 +51,7 @@ const App = () => {
    */
   const addAppointment = (title, contact, date, time) => {
     const appointment = {
+      id: uuidv4(),
       title,
       contact,
       date,
