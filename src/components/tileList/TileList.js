@@ -6,18 +6,9 @@ export const TileList = ({ contacts, appointments }) => {
   /** 
   * Render a list of contact and appointment objects using Tile components
   * with the key of each Tile is either the contact's names or the appointment's titles
-  * TODO: Change if else with looping between props to render contacts and appointments Tile components
   */
-  if (contacts) {
-    return contacts?.map((contact) => (
-      <Tile
-        key={contact.id}
-        name={contact.name}
-        phoneNumber={contact.phoneNumber}
-        email={contact.email} />
-    ))
-  } else {
-    return appointments?.map((appointment) => (
+  if (appointments) {
+    return appointments.map((appointment) => (
       <Tile
         key={appointment.id}
         title={appointment.title}
@@ -29,6 +20,14 @@ export const TileList = ({ contacts, appointments }) => {
       />
     ))
   }
+
+  return contacts?.map((contact) => (
+    <Tile
+      key={contact.id}
+      name={contact.name}
+      phoneNumber={contact.phoneNumber}
+      email={contact.email} />
+  ))
 };
 
 TileList.propTypes = {
