@@ -36,21 +36,6 @@ hr {
   margin: 20px 0;
 }
 
-input[type="submit"] {
-  background: #03a8d8;
-  border-radius: 4px;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 14px;
-  border: none;
-  outline: none;
-  padding: 10px 0;
-  width: 100%;
-  font-family: "Open Sans", sans-serif;
-  margin-top: 10px;
-  margin-bottom: 0px;
-}
-
 input,
 select {
   font-family: "Open Sans", sans-serif;
@@ -92,4 +77,22 @@ form button {
 
 form button:hover {
   background-color: cyan;
+}
+
+/* Appointment Form */
+.appointment-form select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: "▼";
+  font-size: 1rem;
+  top: 6px;
+  right: 12px;
+  position: absolute;
 }
