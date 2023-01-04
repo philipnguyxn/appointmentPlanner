@@ -4,6 +4,7 @@ import { ContactPicker } from "../contactPicker/ContactPicker.js";
 export const AppointmentForm = ({
   title,
   contact,
+  contacts,
   date,
   time,
   setTitle,
@@ -12,10 +13,6 @@ export const AppointmentForm = ({
   setTime,
   handleSubmit
 }) => {
-  /**
-   * TODO: Fix no-unused-vars error when npm start
-  */
-
   /** 
   * Runs when this component is rendered
   * Should a string containing year, month, and day of from the input
@@ -28,7 +25,7 @@ export const AppointmentForm = ({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="appointment-form" onSubmit={handleSubmit}>
       <input
         type='text'
         placeholder="Title"
@@ -38,18 +35,20 @@ export const AppointmentForm = ({
 
       <input
         type='date'
+        placeholder="Date"
         min={getTodayString()}
         value={date}
-        onChange={(e) => {setDate(e.target.value)}}
+        onChange={(e) => { setDate(e.target.value) }}
       />
 
       <input
         type='time'
         value={time}
+        placeholder="Time"
         onChange={(e) => setTime(e.target.value)}
       />
 
-      <ContactPicker />
+      <ContactPicker contacts={contacts} setContact={setContact} />
 
       <button type="submit">Submit</button>
     </form>
