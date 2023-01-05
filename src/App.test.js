@@ -7,7 +7,11 @@ import '@testing-library/jest-dom';
 import App from "./App.js";
 
 test('full app rendering/navigating', async () => {
-  render(<App />, { wrapper: BrowserRouter })
+  render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  )
   const user = userEvent.setup()
 
   // verify page content for default route

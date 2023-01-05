@@ -65,7 +65,7 @@ const App = () => {
   }
 
   return (
-    <>
+    <div className="App">
       <header>
         <NavBar />
       </header>
@@ -87,7 +87,7 @@ const App = () => {
           />
         </Routes>
       </main>
-    </>
+    </div>
   );
 }
 
