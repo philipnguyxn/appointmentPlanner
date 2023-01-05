@@ -1,5 +1,4 @@
 import React from "react";
-import { v4 as uuidv4 } from 'uuid';
 
 export const ContactPicker = ({ contacts, setContact }) => {
   const handleChange = (e) => {
@@ -18,7 +17,7 @@ export const ContactPicker = ({ contacts, setContact }) => {
         <option id="header-option">Select a contact</option>
         {contacts?.map((contact) => (
           contact.name && (
-            <option key={uuidv4} value={JSON.stringify(contact)}>{contact.name}</option>
+            <option key={contact.id} value={JSON.stringify(contact)}>{contact.name}</option>
           )
         ))}
       </select>
