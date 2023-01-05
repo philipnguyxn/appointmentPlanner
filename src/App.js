@@ -1,17 +1,14 @@
 // Node Modules
-import React, { useState } from "react";
-import {
-  Routes,
-  Route,
-} from "react-router-dom";
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 // Components
-import { NavBar } from "./components/navBar/NavBar.js";
+import { NavBar } from './components/navBar/NavBar.js';
 
 // Pages
-import { AppointmentsPage } from "./pages/appointmentsPage/AppointmentsPage.js";
-import { ContactsPage } from "./pages/contactsPage/ContactsPage.js";
-import { HomePage } from "./pages/homePage/HomePage.js";
+import { AppointmentsPage } from './pages/appointmentsPage/AppointmentsPage.js';
+import { ContactsPage } from './pages/contactsPage/ContactsPage.js';
+import { HomePage } from './pages/homePage/HomePage.js';
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -29,14 +26,11 @@ const App = () => {
     const contact = {
       name,
       phoneNumber,
-      email
+      email,
     };
 
-    setContacts((prev) => ([
-      contact,
-      ...prev
-    ]))
-  }
+    setContacts((prev) => [contact, ...prev]);
+  };
 
   /**
    * Runs when the submit button in AppointmentPage is clicked
@@ -51,14 +45,11 @@ const App = () => {
       title,
       contact,
       date,
-      time
+      time,
     };
 
-    setAppointments((prev) => ([
-      appointment,
-      ...prev
-    ]))
-  }
+    setAppointments((prev) => [appointment, ...prev]);
+  };
 
   return (
     <>
@@ -66,24 +57,29 @@ const App = () => {
         <NavBar />
       </header>
       <main>
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/contacts' element={
-            <ContactsPage
-              contacts={contacts}
-              addContact={addContact}
-            />}
-          />
-          <Route path='/appointments' element={
-            <AppointmentsPage
-              appointments={appointments}
-              addAppointment={addAppointment}
-            />}
-          />
-        </Routes>
+        <div className='container'>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route
+              path='/contacts'
+              element={
+                <ContactsPage contacts={contacts} addContact={addContact} />
+              }
+            />
+            <Route
+              path='/appointments'
+              element={
+                <AppointmentsPage
+                  appointments={appointments}
+                  addAppointment={addAppointment}
+                />
+              }
+            />
+          </Routes>
+        </div>
       </main>
     </>
   );
-}
+};
 
 export default App;
